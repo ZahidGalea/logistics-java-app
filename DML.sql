@@ -17,7 +17,6 @@ CREATE TABLE Courier
     nombre         VARCHAR(200) NOT NULL,
     costo_por_peso VARCHAR(200) NOT NULL,
     region_reparte VARCHAR(200) NOT NULL,
-    notificado     CHAR         NOT NULL,
     PRIMARY KEY (nombre)
 );
 
@@ -61,3 +60,10 @@ ALTER TABLE Envio
     ADD FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente);
 ALTER TABLE Envio
     ADD FOREIGN KEY (id_tracking) REFERENCES Estado_Envio (id_tracking);
+
+INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
+values ('Blue', 10, 'a');
+INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
+values ('Starken', 15, 'b');
+INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
+values ('ChileExpress', 12, 'c');

@@ -6,15 +6,15 @@ import java.sql.SQLException;
 
 public class Conexion {
     private static Connection conn = null;
-    private static String login = "arq_application";
-    private static String clave = "123123ajshkgdakjhsd";
-    private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+    private static final String login = "arq_application";
+    private static final String clave = "123123ajshkgdakjhsd";
+    private static final String url = "jdbc:oracle:thin:@//localhost:34705/XEPDB1";
 
     public static Connection getConnection() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(url, login, clave);
-            conn.setAutoCommit(false);
+            conn.setAutoCommit(true);
             if (conn != null) {
                 System.out.println("Conexión exitosa");
             } else {

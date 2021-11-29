@@ -13,6 +13,7 @@ public class CourierCreator {
 
     public Courier createCourier(String region_reparte) {
 
+        // TODO: Cambiar proceso que extraiga couriers desde BD
         ArrayList<Courier> courierArrayList = new ArrayList<Courier>();
 
         courierArrayList.add(new ChileExpress());

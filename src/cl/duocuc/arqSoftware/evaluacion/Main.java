@@ -1,8 +1,14 @@
 package cl.duocuc.arqSoftware.evaluacion;
 
+import cl.duocuc.arqSoftware.evaluacion.dao.ClienteDAO;
+import cl.duocuc.arqSoftware.evaluacion.dao.EnvioDAO;
+import cl.duocuc.arqSoftware.evaluacion.dao.EstadoEnvioDAO;
+import cl.duocuc.arqSoftware.evaluacion.dao.PaqueteDAO;
+import cl.duocuc.arqSoftware.evaluacion.db.Conexion;
 import cl.duocuc.arqSoftware.evaluacion.entities.*;
 import cl.duocuc.arqSoftware.evaluacion.utils.CourierCreator;
 
+import java.sql.Connection;
 import java.util.Date;
 
 public class Main {
@@ -46,14 +52,36 @@ public class Main {
         );
 
 
-        // Notificación al courier
+        // Notificación al courier, primero que tod0.
         boolean notificado = courier.notificarCourier();
 
         // Resguardar en Log o notificar que no se pudo notificar al courier
         if (!notificado) {
             System.out.println("Error en notificación al courier:" + courier.getNombre_courier());
+            // TODO: Añadir proceso de alerta...
+            // ...
         }
 
+        // Genero la conexión
+        Conexion conexion = new Conexion();
+        Connection conn = Conexion.getConnection();
+
+        // Guardo los datos
+
+        // Genero los DAO
+        ClienteDAO clienteDAO = new ClienteDAO();
+        EnvioDAO envioDAO = new EnvioDAO();
+        EstadoEnvioDAO estadoEnvioDAO = new EstadoEnvioDAO();
+        PaqueteDAO paqueteDAO = new PaqueteDAO();
+
+        // Guardo los datos.
+        paqueteDAO.addPaquete(conn, paquete);
+        clienteDAO.addCliente(conn, cliente);
+        estadoEnvioDAO.addEstadoEnvio(conn, estadoEnvio);
+        // envioDAO.addEnvio(conn, envio);
+
+        // Me desconecto
+        conexion.desconexion(conn);
         System.out.println("Fin");
 
     }
