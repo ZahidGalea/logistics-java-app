@@ -78,7 +78,7 @@ public class Main {
         paqueteDAO.addPaquete(conn, paquete);
         clienteDAO.addCliente(conn, cliente);
         estadoEnvioDAO.addEstadoEnvio(conn, estadoEnvio);
-        // envioDAO.addEnvio(conn, envio);
+        envioDAO.addEnvio(conn, envio);
 
         // Me desconecto
         conexion.desconexion(conn);
