@@ -1,4 +1,6 @@
-package cl.duocuc.arqSoftware.evaluacion;
+package cl.duocuc.arqSoftware.evaluacion.entities;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Paquete {
     private Integer id_paquete;
@@ -36,7 +38,7 @@ public class Paquete {
     }
 
     public Integer generarIdPaquete() {
-        return 1;
+        return ThreadLocalRandom.current().nextInt(1, 100000 + 1);
     }
 
 }

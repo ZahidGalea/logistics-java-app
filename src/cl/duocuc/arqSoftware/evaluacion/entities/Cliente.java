@@ -1,4 +1,6 @@
-package cl.duocuc.arqSoftware.evaluacion;
+package cl.duocuc.arqSoftware.evaluacion.entities;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Cliente {
 
@@ -18,6 +20,14 @@ public class Cliente {
         this.nombre_apellido = nombre_apellido;
         this.rut = rut;
         this.numero_telefono = numero_telefono;
+    }
+
+    public String getNombre_apellido() {
+        return nombre_apellido;
+    }
+
+    public void setNombre_apellido(String nombre_apellido) {
+        this.nombre_apellido = nombre_apellido;
     }
 
     public int getId_cliente() {
@@ -77,6 +87,6 @@ public class Cliente {
     }
 
     public Integer generarIdClient() {
-        return 1;
+        return ThreadLocalRandom.current().nextInt(1, 100000 + 1);
     }
 }
