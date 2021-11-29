@@ -15,18 +15,31 @@ public class Main {
 
     public static void main(String[] args) {
         Date fecha_envio = new Date(System.currentTimeMillis());
-        Integer costo_envio = 123;
+        int costo_envio = 123;
         String direccion = "Carmen 390";
         String comuna = "Santiago";
         String nombre_apellido = "Zahid";
         String numero_telefono = "123123";
         String rut = "123123k";
         String region = "c";
-        Integer peso = 12;
+        int peso = 12;
         String tamanio = "Grande";
 
+        registrar_paquete(fecha_envio, costo_envio, direccion, comuna, region, nombre_apellido, rut, numero_telefono, peso, tamanio);
+
+        fecha_envio = new Date(System.currentTimeMillis());
+        costo_envio = 122;
+        direccion = "Carmen 340";
+        comuna = "Santiago";
+        nombre_apellido = "Alejandro";
+        numero_telefono = "123123";
+        rut = "123123k";
+        region = "b";
+        peso = 10;
+        tamanio = "Grande";
 
         registrar_paquete(fecha_envio, costo_envio, direccion, comuna, region, nombre_apellido, rut, numero_telefono, peso, tamanio);
+
     }
 
 

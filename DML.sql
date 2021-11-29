@@ -62,8 +62,8 @@ ALTER TABLE Envio
     ADD FOREIGN KEY (id_tracking) REFERENCES Estado_Envio (id_tracking);
 
 INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
-values ('Blue', 10, 'a');
+values ('Blue', 1000, 'a');
 INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
-values ('Starken', 15, 'b');
+values ('Starken', 1500, 'b');
 INSERT INTO COURIER (NOMBRE, COSTO_POR_PESO, REGION_REPARTE)
-values ('ChileExpress', 12, 'c');
+values ('ChileExpress', 1200, 'c');
