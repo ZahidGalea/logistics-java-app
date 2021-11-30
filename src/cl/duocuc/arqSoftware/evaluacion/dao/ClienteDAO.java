@@ -23,7 +23,7 @@ public class ClienteDAO {
             pst.setString(7, cliente.getRut());
             pst.execute();
             pst.closeOnCompletion();
-            System.out.println("Información guardada correctamente");
+            System.out.println("Cliente guardado correctamente");
 
         } catch (Exception e) {
             System.out.println("ClienteDAO.addCliente");

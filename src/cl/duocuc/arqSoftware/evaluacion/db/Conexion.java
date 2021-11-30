@@ -8,7 +8,7 @@ public class Conexion {
     private static Connection conn = null;
     private static final String login = "arq_application";
     private static final String clave = "123123ajshkgdakjhsd";
-    private static final String url = "jdbc:oracle:thin:@//localhost:34705/XEPDB1";
+    private static final String url = "jdbc:oracle:thin:@//localhost:46643/XEPDB1";
 
     public static Connection getConnection() {
         try {

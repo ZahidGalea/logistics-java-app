@@ -23,7 +23,7 @@ public class EnvioDAO {
             pst.setInt(7, envio.getId_cliente());
             pst.execute();
             pst.closeOnCompletion();
-            System.out.println("Información guardada correctamente");
+            System.out.println("Envio guardado correctamente");
 
         } catch (Exception e) {
             System.out.println("EnvioDAO.addEnvio");

@@ -42,7 +42,7 @@ public class Main {
 
     }
 
-
+    // Spring Boot HttpRequests
     public static void registrar_paquete(Date fecha_envio, Integer costo_envio, String direccion,
                                          String comuna, String region, String nombre_apellido,
                                          String rut, String numero_telefono, Integer peso, String tamanio) {
@@ -55,7 +55,7 @@ public class Main {
         // Factory Pattern -
         CourierCreator courierCreator = new CourierCreator();
         Courier courier = courierCreator.createCourier(region);
-
+        System.out.println(courier);
         Envio envio = new Envio(fecha_envio,
                 costo_envio,
                 paquete.getId_paquete(),

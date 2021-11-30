@@ -19,7 +19,7 @@ public class EstadoEnvioDAO {
             pst.setString(3, estadoEnvio.getEstado());
             pst.execute();
             pst.closeOnCompletion();
-            System.out.println("Información guardada correctamente");
+            System.out.println("Estado Envio guardada correctamente");
 
         } catch (Exception e) {
             System.out.println("EstadoEnvioDAO.addEstadoEnvio");

@@ -19,7 +19,7 @@ public class PaqueteDAO {
 
             pst.execute();
             pst.closeOnCompletion();;
-            System.out.println("Información guardada correctamente");
+            System.out.println("Paquete guardado correctamente");
 
         } catch (Exception e) {
             System.out.println("PaqueteDAO.addPaquete");
