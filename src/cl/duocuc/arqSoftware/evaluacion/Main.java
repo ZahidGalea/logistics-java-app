@@ -56,6 +56,7 @@ public class Main {
         CourierCreator courierCreator = new CourierCreator();
         Courier courier = courierCreator.createCourier(region);
         System.out.println(courier);
+
         Envio envio = new Envio(fecha_envio,
                 costo_envio,
                 paquete.getId_paquete(),

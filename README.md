@@ -18,6 +18,11 @@ Aplicaciones:
 * DAO
 * Factory Pattern
 
+Atributos de calidad fundamentales:
+
+* Eficiencia de desempenio - Escalado horizontal
+* Compatibilidad - Comunicacion mediante HTTPS
+
 ### Casos de uso:
 
 ![alt text](img/Casos%20de%20uso.drawio.png)
