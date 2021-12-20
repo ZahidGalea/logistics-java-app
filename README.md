@@ -30,3 +30,21 @@ Atributos de calidad fundamentales:
 ### Diagrama ER
 
 ![alt text](img/CLIENTE.png)
+
+
+### Rutas API
+
+* api/v1/registrar-venta
+  * Ejemplo de Body esperado:
+    * {
+      "fecha_envio": "2021-12-10",
+      "costo_envio": "123",
+      "direccion": "Carmen 1231323",
+      "comuna": "Santiago",
+      "nombre_apellido": "Zahid Galea",
+      "numero_telefono": "123123123",
+      "rut": "123123123",
+      "region": "c",
+      "peso": 12,
+      "tamanio": "grande"
+      }
