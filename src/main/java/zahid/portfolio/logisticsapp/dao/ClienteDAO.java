@@ -1,38 +1,42 @@
 package zahid.portfolio.logisticsapp.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import zahid.portfolio.logisticsapp.db_entities.Cliente;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-@Repository
+@Repository("oracleCliente")
 public class ClienteDAO {
 
+    private final JdbcTemplate jdbcTemplate;
 
-    public boolean addCliente(Connection conn, Cliente cliente) {
-        PreparedStatement pst;
+    @Autowired
+    public ClienteDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public boolean addCliente(Cliente cliente) {
         String sql = "INSERT INTO CLIENTE (ID_CLIENTE, DIRECCION, COMUNA, NOMBRE, NUMERO_TLF, REGION, RUT)" +
                 "VALUES (?,?,?,?,?,?,?)";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1, cliente.getId_cliente());
-            pst.setString(2, cliente.getDireccion());
-            pst.setString(3, cliente.getComuna());
-            pst.setString(4, cliente.getNombre_apellido());
-            pst.setString(5, cliente.getNumero_telefono());
-            pst.setString(6, cliente.getRegion());
-            pst.setString(7, cliente.getRut());
-            pst.execute();
-            pst.closeOnCompletion();
-            System.out.println("Cliente guardado correctamente");
 
-        } catch (Exception e) {
-            System.out.println("ClienteDAO.addCliente");
-            System.out.println("Algo fallo:" + e.getMessage());
-            return false;
-        }
-        return true;
+        return Boolean.TRUE.equals(jdbcTemplate.execute(sql, new PreparedStatementCallback<Boolean>() {
+            @Override
+            public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
+                ps.setInt(1, cliente.getId_cliente());
+                ps.setString(2, cliente.getDireccion());
+                ps.setString(3, cliente.getComuna());
+                ps.setString(4, cliente.getNombre_apellido());
+                ps.setString(5, cliente.getNumero_telefono());
+                ps.setString(6, cliente.getRegion());
+                ps.setString(7, cliente.getRut());
+                return ps.execute();
+            }
+        }));
     }
 
 }

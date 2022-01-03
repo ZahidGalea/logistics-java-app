@@ -5,10 +5,8 @@ import zahid.portfolio.logisticsapp.db_entities.Courier;
 public class Blue extends Courier {
     boolean notificado = false;
 
-    public Blue() {
-        this.setRegion_reparte("c");
-        this.setNombre_courier("Blue");
-        this.setCosto_por_peso(10);
+    public Blue(String nombre_courier, double costo_por_peso, String region_reparte) {
+        super(nombre_courier, costo_por_peso, region_reparte);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class EnvioController {
     }
 
     @PostMapping
-    public void registrarEnvio(@RequestBody Venta venta) {
+    public void registrarEnvio(@RequestBody Venta venta) throws Exception {
         this.registroEnvioService.registrarEnvio(venta);
     }
 

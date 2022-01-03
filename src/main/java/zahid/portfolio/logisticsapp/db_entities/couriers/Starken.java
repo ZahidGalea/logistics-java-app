@@ -5,10 +5,9 @@ import zahid.portfolio.logisticsapp.db_entities.Courier;
 public class Starken extends Courier {
     boolean notificado = false;
 
-    public Starken() {
-        this.setRegion_reparte("b");
-        this.setNombre_courier("Starken");
-        this.setCosto_por_peso(15);
+
+    public Starken(String nombre_courier, double costo_por_peso, String region_reparte) {
+        super(nombre_courier, costo_por_peso, region_reparte);
     }
 
     @Override

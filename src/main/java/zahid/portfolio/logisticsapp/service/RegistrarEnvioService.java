@@ -2,14 +2,10 @@ package zahid.portfolio.logisticsapp.service;
 
 import zahid.portfolio.logisticsapp.api.bodies.Venta;
 import zahid.portfolio.logisticsapp.dao.*;
-import zahid.portfolio.logisticsapp.db.Conexion;
 import zahid.portfolio.logisticsapp.db_entities.*;
-import zahid.portfolio.logisticsapp.utils.CourierCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.sql.Connection;
 
 @Service
 public class RegistrarEnvioService {
@@ -18,30 +14,32 @@ public class RegistrarEnvioService {
     private final EnvioDAO envioDAO;
     private final EstadoEnvioDAO estadoEnvioDAO;
     private final PaqueteDAO paqueteDAO;
+    private final CourierCreatorService courierCreatorService;
 
     @Autowired
-    public RegistrarEnvioService(@Qualifier("clienteDAO") ClienteDAO clienteDAO,
-                                 @Qualifier("courierDAO") CourierDAO courierDAO,
-                                 @Qualifier("envioDAO") EnvioDAO envioDAO,
-                                 @Qualifier("estadoEnvioDAO") EstadoEnvioDAO estadoEnvioDAO,
-                                 @Qualifier("paqueteDAO") PaqueteDAO paqueteDAO) {
+    public RegistrarEnvioService(@Qualifier("oracleCliente") ClienteDAO clienteDAO,
+                                 @Qualifier("oracleCourier") CourierDAO courierDAO,
+                                 @Qualifier("oracleEnvio") EnvioDAO envioDAO,
+                                 @Qualifier("oracleEstadoEnvio") EstadoEnvioDAO estadoEnvioDAO,
+                                 @Qualifier("oraclePaquete") PaqueteDAO paqueteDAO,
+                                 CourierCreatorService courierCreatorService) {
         this.clienteDAO = clienteDAO;
         this.courierDAO = courierDAO;
         this.envioDAO = envioDAO;
         this.estadoEnvioDAO = estadoEnvioDAO;
         this.paqueteDAO = paqueteDAO;
+        this.courierCreatorService = courierCreatorService;
     }
 
 
-    public void registrarEnvio(Venta venta) {
+    public void registrarEnvio(Venta venta) throws Exception {
         System.out.println("Registrar paquete");
         Cliente cliente = new Cliente(venta.direccion, venta.comuna, venta.region, venta.nombre_apellido, venta.rut, venta.numero_telefono);
         Paquete paquete = new Paquete(venta.peso, venta.tamanio);
         EstadoEnvio estadoEnvio = new EstadoEnvio(venta.fecha_envio, "Orden creada");
 
         // Factory Pattern -
-        CourierCreator courierCreator = new CourierCreator();
-        Courier courier = courierCreator.createCourier(venta.region);
+        Courier courier = this.courierCreatorService.createCourier(venta.region);
         System.out.println(courier);
 
         Envio envio = new Envio(venta.fecha_envio,
@@ -63,19 +61,12 @@ public class RegistrarEnvioService {
             // ...
         }
 
-
-        // Genero la conexión
-        Conexion conexion = new Conexion();
-        Connection conn = Conexion.getConnection();
-
         // Guardo los datos.
-        paqueteDAO.addPaquete(conn, paquete);
-        clienteDAO.addCliente(conn, cliente);
-        estadoEnvioDAO.addEstadoEnvio(conn, estadoEnvio);
-        envioDAO.addEnvio(conn, envio);
+        paqueteDAO.addPaquete(paquete);
+        clienteDAO.addCliente(cliente);
+        estadoEnvioDAO.addEstadoEnvio(estadoEnvio);
+        envioDAO.addEnvio(envio);
 
-        // Me desconecto
-        conexion.desconexion(conn);
         System.out.println("Fin");
     }
 

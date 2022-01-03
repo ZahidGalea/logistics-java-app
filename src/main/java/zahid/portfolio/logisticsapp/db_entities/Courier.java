@@ -1,10 +1,16 @@
 package zahid.portfolio.logisticsapp.db_entities;
 
-public abstract class Courier {
+public class Courier {
     String nombre_courier = null;
     double costo_por_peso = 0.0;
     String region_reparte = null;
     boolean notificado = false;
+
+    public Courier(String nombre_courier, double costo_por_peso, String region_reparte) {
+        this.nombre_courier = nombre_courier;
+        this.costo_por_peso = costo_por_peso;
+        this.region_reparte = region_reparte;
+    }
 
     public String getNombre_courier() {
         return nombre_courier;
@@ -40,7 +46,7 @@ public abstract class Courier {
 
     public boolean notificarCourier() {
         this.setNotificado(true);
-        System.out.println("Courier notificado.");
+        System.out.println("Courier sin notificar. no se encontró courier en la zona");
         return true;
     }
 
