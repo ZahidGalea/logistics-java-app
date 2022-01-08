@@ -1,6 +1,6 @@
 app:
   datasource:
-    jdbc-url: jdbc:oracle:thin:@//localhost:33867/XEPDB1
-    username: arq_application
-    password: 123123ajshkgdakjhsd
+    jdbc-url: ${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     pool-size: 30
