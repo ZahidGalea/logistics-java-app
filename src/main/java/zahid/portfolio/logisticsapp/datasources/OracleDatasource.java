@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class OracleDatasource {
 
     @Bean
-    @ConfigurationProperties("app.datasource")
+    @ConfigurationProperties("oracle.datasource")
     public HikariDataSource hikariDataSource() {
         return DataSourceBuilder
                 .create()

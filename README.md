@@ -1,4 +1,4 @@
-# Logistics Project
+# Ecommerce - Logistics Project
 
 ----
 
@@ -26,11 +26,6 @@ Atributos de calidad fundamentales:
 ### Casos de uso:
 
 ![alt text](img/Casos%20de%20uso.drawio.png)
-
-### Diagrama ER
-
-![alt text](img/CLIENTE.png)
-
 
 ### Rutas API
 
