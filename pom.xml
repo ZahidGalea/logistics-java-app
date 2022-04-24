@@ -10,7 +10,7 @@
     </parent>
     <groupId>zahid.portfolio</groupId>
     <artifactId>logistics-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>logistics-app</name>
     <description>logistics-app</description>
     <properties>
@@ -30,18 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>spring-cloud-gcp-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>spring-cloud-gcp-starter-pubsub</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.cloud</groupId>
-            <artifactId>spring-cloud-gcp-starter-storage</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -85,13 +73,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.google.cloud</groupId>
-                <artifactId>spring-cloud-gcp-dependencies</artifactId>
-                <version>${spring-cloud-gcp.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

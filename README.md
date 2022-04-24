@@ -11,7 +11,6 @@ Hecho con el objetivo de presentar en Arquitectura de Software.
 Casos de uso involucrados:
 
 * Registro de un paquete
-* Notificación a un sistema interesado.
 
 Aplicaciones:
 

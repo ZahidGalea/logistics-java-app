@@ -7,9 +7,9 @@ import zahid.portfolio.logisticsapp.dao.*;
 import zahid.portfolio.logisticsapp.db_entities.Courier;
 import zahid.portfolio.logisticsapp.db_entities.couriers.Blue;
 import zahid.portfolio.logisticsapp.db_entities.couriers.ChileExpress;
+import zahid.portfolio.logisticsapp.db_entities.couriers.Global;
 import zahid.portfolio.logisticsapp.db_entities.couriers.Starken;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -23,11 +23,11 @@ public class CourierCreatorService {
     }
 
 
-    public Courier createCourier(String region_reparte) throws Exception {
-        try {
-            List<Courier> couriers = this.courierDAO.getCouriersByRegion(region_reparte);
+    public Courier createCourier(String region_reparte) {
+        Courier courier = this.courierDAO.getCouriersByRegion(region_reparte).get(0);
 
-            Courier courier = this.courierDAO.getCouriersByRegion(region_reparte).get(0);
+        try {
+
             if (Objects.equals(courier.getNombre_courier(), "Blue")) {
                 return new Blue(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
             }
@@ -38,10 +38,11 @@ public class CourierCreatorService {
                 return new Starken(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
             }
         } catch (Exception e) {
-            e.printStackTrace();
-        }
+            System.out.println("Region no encontrada");
+            System.out.println("Retornando un Courier default: Global");
 
-        throw new Exception("Region no encontrada");
+        }
+        return new Global(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
 
     }
 
