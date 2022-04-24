@@ -6,14 +6,6 @@ CREATE TABLE Estado_Envio
     PRIMARY KEY (id_tracking)
 );
 
-CREATE TABLE Courier
-(
-    nombre         VARCHAR(200) NOT NULL,
-    costo_por_peso VARCHAR(200) NOT NULL,
-    region_reparte VARCHAR(200) NOT NULL,
-    PRIMARY KEY (nombre)
-);
-
 CREATE TABLE Envio
 (
     id_envio       INTEGER      NOT NULL,
@@ -46,8 +38,6 @@ CREATE TABLE Cliente
     PRIMARY KEY (id_cliente)
 );
 
-ALTER TABLE Envio
-    ADD FOREIGN KEY (courier_nombre) REFERENCES Courier (nombre);
 ALTER TABLE Envio
     ADD FOREIGN KEY (id_paquete) REFERENCES Paquete (id_paquete);
 ALTER TABLE Envio

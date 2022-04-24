@@ -22,27 +22,19 @@ public class CourierCreatorService {
         this.courierDAO = courierDAO;
     }
 
-
     public Courier createCourier(String region_reparte) {
-        Courier courier = this.courierDAO.getCouriersByRegion(region_reparte).get(0);
 
-        try {
-
-            if (Objects.equals(courier.getNombre_courier(), "Blue")) {
-                return new Blue(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
-            }
-            if (Objects.equals(courier.getNombre_courier(), "ChileExpress")) {
-                return new ChileExpress(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
-            }
-            if (Objects.equals(courier.getNombre_courier(), "Starken")) {
-                return new Starken(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
-            }
-        } catch (Exception e) {
-            System.out.println("Region no encontrada");
-            System.out.println("Retornando un Courier default: Global");
-
+        if (Objects.equals(region_reparte, "1")) {
+            return new Blue("Blue", 5, region_reparte);
         }
-        return new Global(courier.getNombre_courier(), courier.getCosto_por_peso(), courier.getRegion_reparte());
+        if (Objects.equals(region_reparte, "2")) {
+            return new ChileExpress("ChileExpress", 10, region_reparte);
+        }
+        if (Objects.equals(region_reparte, "3")) {
+            return new Starken("Starken", 8, region_reparte);
+        } else {
+            return new Global("Global", 20, region_reparte);
+        }
 
     }
 
