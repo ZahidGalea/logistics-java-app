@@ -1,6 +1,6 @@
-oracle:
+postgre:
   datasource:
-    jdbc-url: jdbc:oracle:thin:@//${ORACLE_DB_HOST}:${ORACLE_DB_PORT}/${ORACLE_DB_NAME}
-    username: ${ORACLE_DB_USERNAME}
-    password: ${ORACLE_DB_PASSWORD}
+    jdbc-url: jdbc:postgresql://${POSTGRE_DB_HOST}:${POSTGRE_DB_PORT}/${POSTGRE_DB_NAME}
+    username: ${POSTGRE_DB_USERNAME}
+    password: ${POSTGRE_DB_PASSWORD}
     pool-size: 30

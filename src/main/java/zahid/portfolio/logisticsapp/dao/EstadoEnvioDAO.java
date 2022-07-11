@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository("oracleEstadoEnvio")
+@Repository("postgresqlEstadoEnvio")
 public class EstadoEnvioDAO {
 
     private final JdbcTemplate jdbcTemplate;

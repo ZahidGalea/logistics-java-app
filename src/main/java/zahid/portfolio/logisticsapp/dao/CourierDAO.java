@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-@Repository("oracleCourier")
+@Repository("postgresqlCourier")
 public class CourierDAO {
 
     private final JdbcTemplate jdbcTemplate;

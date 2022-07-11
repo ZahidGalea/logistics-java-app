@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository("oracleEnvio")
+@Repository("postgresqlEnvio")
 public class EnvioDAO {
 
     private final JdbcTemplate jdbcTemplate;

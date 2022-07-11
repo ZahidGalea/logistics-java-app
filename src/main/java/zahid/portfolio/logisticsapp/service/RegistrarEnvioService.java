@@ -17,11 +17,11 @@ public class RegistrarEnvioService {
     private final CourierCreatorService courierCreatorService;
 
     @Autowired
-    public RegistrarEnvioService(@Qualifier("oracleCliente") ClienteDAO clienteDAO,
-                                 @Qualifier("oracleCourier") CourierDAO courierDAO,
-                                 @Qualifier("oracleEnvio") EnvioDAO envioDAO,
-                                 @Qualifier("oracleEstadoEnvio") EstadoEnvioDAO estadoEnvioDAO,
-                                 @Qualifier("oraclePaquete") PaqueteDAO paqueteDAO,
+    public RegistrarEnvioService(@Qualifier("postgresqlCliente") ClienteDAO clienteDAO,
+                                 @Qualifier("postgresqlCourier") CourierDAO courierDAO,
+                                 @Qualifier("postgresqlEnvio") EnvioDAO envioDAO,
+                                 @Qualifier("postgresqlEstadoEnvio") EstadoEnvioDAO estadoEnvioDAO,
+                                 @Qualifier("postgresqlPaquete") PaqueteDAO paqueteDAO,
                                  CourierCreatorService courierCreatorService) {
         this.clienteDAO = clienteDAO;
         this.courierDAO = courierDAO;

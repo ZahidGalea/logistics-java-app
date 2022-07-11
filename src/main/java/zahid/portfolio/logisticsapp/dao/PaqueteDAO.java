@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository("oraclePaquete")
+@Repository("postgresqlPaquete")
 public class PaqueteDAO {
 
     private final JdbcTemplate jdbcTemplate;

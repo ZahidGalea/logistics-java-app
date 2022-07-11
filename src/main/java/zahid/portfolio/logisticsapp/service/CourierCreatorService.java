@@ -18,7 +18,7 @@ public class CourierCreatorService {
     private final CourierDAO courierDAO;
 
     @Autowired
-    public CourierCreatorService(@Qualifier("oracleCourier") CourierDAO courierDAO) {
+    public CourierCreatorService(@Qualifier("postgresqlCourier") CourierDAO courierDAO) {
         this.courierDAO = courierDAO;
     }
 

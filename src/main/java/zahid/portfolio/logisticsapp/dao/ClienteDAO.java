@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository("oracleCliente")
+@Repository("postgresqlCliente")
 public class ClienteDAO {
 
     private final JdbcTemplate jdbcTemplate;
